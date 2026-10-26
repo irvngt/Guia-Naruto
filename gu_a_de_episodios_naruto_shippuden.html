@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naruto Shippuden | Los 500 Capítulos - Guía Liquid Glass</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/ninja-naruto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #050611;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    
+    .font-naruto {
+      font-family: 'Ninja Naruto', 'Dela Gothic One', 'Impact', sans-serif;
+      letter-spacing: 0.06em;
+      font-weight: 400;
+    }
+    h1.font-naruto {
+      text-transform: uppercase;
+    }
+    .title-naruto {
+      color: #fb923c;
+      -webkit-text-fill-color: #fb923c;
+      text-shadow:
+        0 2px 0 #7c2d12,
+        2px 3px 0 #431407,
+        0 0 18px rgba(249, 115, 22, 0.55),
+        0 0 42px rgba(234, 88, 12, 0.28);
+    }
+
+    /* Active data-filter pill */
+    .filter-btn {
+      position: relative;
+      opacity: 0.7;
+      transform: scale(0.97);
+    }
+    .filter-btn:hover {
+      opacity: 1;
+    }
+    .filter-btn.is-active {
+      opacity: 1;
+      transform: scale(1.06);
+      font-weight: 800;
+      z-index: 1;
+    }
+    .filter-btn.is-active[data-filter="all"] {
+      background: linear-gradient(135deg, #f97316, #ea580c) !important;
+      border-color: #fed7aa !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 2px rgba(254, 215, 170, 0.95), 0 0 22px rgba(249, 115, 22, 0.75);
+    }
+    .filter-btn.is-active[data-filter="canon"] {
+      background: linear-gradient(135deg, #10b981, #047857) !important;
+      border-color: #6ee7b7 !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 2px rgba(110, 231, 183, 0.95), 0 0 22px rgba(16, 185, 129, 0.7);
+    }
+    .filter-btn.is-active[data-filter="mixed"] {
+      background: linear-gradient(135deg, #0ea5e9, #0369a1) !important;
+      border-color: #7dd3fc !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.95), 0 0 22px rgba(14, 165, 233, 0.7);
+    }
+    .filter-btn.is-active[data-filter="filler"] {
+      background: linear-gradient(135deg, #f43f5e, #be123c) !important;
+      border-color: #fda4af !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 2px rgba(253, 164, 175, 0.95), 0 0 22px rgba(244, 63, 94, 0.7);
+    }
+    .filter-btn.is-active[data-filter="unwatched-canon"] {
+      background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+      border-color: #fcd34d !important;
+      color: #fff !important;
+      box-shadow: 0 0 0 2px rgba(252, 211, 77, 0.95), 0 0 22px rgba(245, 158, 11, 0.75);
+    }
+
+    /* Ambient animated liquid chakra orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.5;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      animation: float 24s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+    .orb-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #f97316 0%, rgba(234, 88, 12, 0.18) 70%, transparent 100%);
+      top: -120px;
+      left: -100px;
+      animation-duration: 25s;
+    }
+    .orb-2 {
+      width: 620px;
+      height: 620px;
+      background: radial-gradient(circle, #38bdf8 0%, rgba(59, 130, 246, 0.22) 65%, transparent 100%);
+      bottom: 8%;
+      right: -140px;
+      animation-duration: 29s;
+      animation-delay: -6s;
+    }
+    .orb-3 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #e11d48 0%, rgba(159, 18, 57, 0.18) 65%, transparent 100%);
+      top: 42%;
+      left: 25%;
+      animation-duration: 34s;
+      animation-delay: -12s;
+    }
+    .orb-4 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #eab308 0%, rgba(161, 98, 7, 0.15) 65%, transparent 100%);
+      top: 15%;
+      right: 20%;
+      animation-duration: 27s;
+      animation-delay: -18s;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+      50% { transform: translate(65px, -50px) scale(1.1) rotate(12deg); }
+      100% { transform: translate(-45px, 55px) scale(0.92) rotate(-10deg); }
+    }
+
+    /* Core Liquid Glass Surfaces */
+    .liquid-glass {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.025) 100%);
+      backdrop-filter: blur(26px) saturate(190%);
+      -webkit-backdrop-filter: blur(26px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      box-shadow: 
+        0 12px 40px 0 rgba(0, 0, 0, 0.45),
+        inset 0 1px 1px 0 rgba(255, 255, 255, 0.28),
+        inset 0 -1px 2px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .liquid-glass-card {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(15, 18, 36, 0.55) 100%);
+      backdrop-filter: blur(20px) saturate(175%);
+      -webkit-backdrop-filter: blur(20px) saturate(175%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .liquid-glass-card:hover {
+      border-color: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 16px 38px -8px rgba(0, 0, 0, 0.65), inset 0 1px 2px 0 rgba(255, 255, 255, 0.32);
+    }
+
+    .liquid-row {
+      transition: all 0.2s ease;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .liquid-row:hover {
+      background: linear-gradient(90deg, rgba(249, 115, 22, 0.1) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(56, 189, 248, 0.08) 100%);
+    }
+
+    /* Specular shine sweep */
+    .liquid-glow {
+      position: relative;
+      overflow: hidden;
+    }
+    .liquid-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+      transform: skewX(-25deg);
+      transition: 0.85s ease;
+      pointer-events: none;
+    }
+    .liquid-glow:hover::before {
+      left: 160%;
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(5, 6, 17, 0.85);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(249, 115, 22, 0.5);
+    }
+
+    /* Checkbox styling */
+    .chakra-checkbox {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .chakra-checkbox:checked {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      border-color: #fdba74;
+      box-shadow: 0 0 10px rgba(249, 115, 22, 0.6);
+    }
+    .chakra-checkbox:checked::after {
+      content: '\f00c';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 11px;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body class="min-h-screen relative selection:bg-orange-500/30 selection:text-orange-200">
+
+  <!-- Ambient dynamic liquid chakra background -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(#ffffff09_1px,transparent_1px)] [background-size:24px_24px] opacity-40"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col gap-6">
+    
+    <!-- Top Header & Liquid Glass Dashboard -->
+    <header class="liquid-glass rounded-3xl p-5 sm:p-8 border-white/20 liquid-glow">
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/15 border border-orange-500/30 text-orange-300 text-xs font-semibold tracking-wider uppercase mb-3 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+            Base de Datos Oficial • 500 Capítulos con Nombre
+          </div>
+          <h1 class="text-3xl sm:text-5xl leading-tight py-1 font-naruto title-naruto">
+            NARUTO SHIPPUDEN
+          </h1>
+          <p class="text-slate-300 text-xs sm:text-sm mt-2 max-w-2xl">
+            Tabla maestra interactiva con estética <span class="text-white font-semibold">Liquid Glass</span>. Consulta el título exacto de los 500 episodios, identifica qué capítulos son <span class="text-emerald-300 font-medium">Canon del Manga</span>, <span class="text-sky-300 font-medium">Mixtos/Novelas</span> o <span class="text-rose-300 font-medium">Relleno</span>, y lleva el registro de tu progreso.
+          </p>
+        </div>
+
+        <!-- Live Stats Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full lg:w-auto">
+          <div class="p-3.5 rounded-2xl bg-emerald-950/30 border border-emerald-500/30 text-center backdrop-blur-md shadow-inner">
+            <div class="text-emerald-400 text-[11px] font-bold uppercase tracking-wider">Manga Canon</div>
+            <div id="stat-canon-count" class="text-2xl font-extrabold text-white mt-0.5">272</div>
+            <div id="stat-canon-pct" class="text-[11px] text-emerald-300/80 font-medium">54.4%</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-sky-950/30 border border-sky-500/30 text-center backdrop-blur-md shadow-inner">
+            <div class="text-sky-400 text-[11px] font-bold uppercase tracking-wider">Mixto / Novela</div>
+            <div id="stat-mixed-count" class="text-2xl font-extrabold text-white mt-0.5">32</div>
+            <div id="stat-mixed-pct" class="text-[11px] text-sky-300/80 font-medium">6.4%</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-rose-950/30 border border-rose-500/30 text-center backdrop-blur-md shadow-inner">
+            <div class="text-rose-400 text-[11px] font-bold uppercase tracking-wider">Relleno</div>
+            <div id="stat-filler-count" class="text-2xl font-extrabold text-white mt-0.5">196</div>
+            <div id="stat-filler-pct" class="text-[11px] text-rose-300/80 font-medium">39.2%</div>
+          </div>
+          <div class="p-3.5 rounded-2xl bg-orange-950/30 border border-orange-500/30 text-center backdrop-blur-md shadow-inner">
+            <div class="text-orange-400 text-[11px] font-bold uppercase tracking-wider">Tu Progreso</div>
+            <div id="stat-watched-count" class="text-2xl font-extrabold text-white mt-0.5">0/500</div>
+            <div id="stat-watched-pct" class="text-[11px] text-orange-300/80 font-medium">0% visto</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dual Distribution & Watched Progress Bar -->
+      <div class="mt-6 pt-5 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <div class="flex items-center justify-between text-xs text-slate-300 mb-1.5 font-medium">
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.9)]"></span> Canon</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-sky-400 shadow-[0_0_8px_rgba(56,189,248,0.9)]"></span> Mixto / Novelas</span>
+            <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-rose-400 shadow-[0_0_8px_rgba(251,113,133,0.9)]"></span> Relleno (Omitible)</span>
+          </div>
+          <div class="w-full h-2.5 rounded-full bg-slate-950/80 p-0.5 border border-white/10 flex overflow-hidden">
+            <div id="bar-canon" class="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-l-full transition-all duration-500" style="width: 54.4%;"></div>
+            <div id="bar-mixed" class="h-full bg-gradient-to-r from-sky-500 to-cyan-400 transition-all duration-500" style="width: 6.4%;"></div>
+            <div id="bar-filler" class="h-full bg-gradient-to-r from-rose-500 to-pink-500 rounded-r-full transition-all duration-500" style="width: 39.2%;"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between text-xs text-slate-300 mb-1.5 font-medium">
+            <span><i class="fa-solid fa-eye text-orange-400 mr-1"></i> Progreso personal de capítulos vistos</span>
+            <button id="mark-all-canon-btn" class="text-[11px] text-orange-300 hover:text-orange-200 underline decoration-orange-400/50">
+              Marcar todo el Canon visto
+            </button>
+          </div>
+          <div class="w-full h-2.5 rounded-full bg-slate-950/80 p-0.5 border border-white/10 overflow-hidden">
+            <div id="watched-bar" class="h-full bg-gradient-to-r from-orange-500 via-amber-400 to-yellow-300 rounded-full transition-all duration-500" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sticky Filter & Control Panel -->
+    <section class="liquid-glass rounded-2xl p-4 sm:p-5 border-white/15 sticky top-3 z-30">
+      <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+        
+        <!-- Search Input -->
+        <div class="relative flex-1">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Busca por N° (ej: 133, 167, 476) o título (ej: Pain, Itachi, Jiraiya, Madara, Kakashi)..." 
+            class="w-full pl-10 pr-20 py-2.5 rounded-xl bg-slate-950/65 border border-white/15 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-orange-500/50 focus:border-orange-400/80 text-xs sm:text-sm backdrop-blur-md transition-all"
+          >
+          <button id="clear-search" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-300 hover:text-white text-xs px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 transition-all">
+            Limpiar
+          </button>
+        </div>
+
+        <!-- Saga Select Dropdown -->
+        <div class="w-full lg:w-64">
+          <select id="saga-select" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/65 border border-white/15 text-xs sm:text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-orange-500/50 cursor-pointer">
+            <option value="all">Todas las Sagas (28 Arcos)</option>
+          </select>
+        </div>
+
+        <!-- View Mode Toggle -->
+        <div class="flex rounded-xl bg-slate-950/70 p-1 border border-white/15 self-start lg:self-auto w-full sm:w-auto">
+          <button id="view-table-btn" class="flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-table-list"></i> Tabla (500 Caps)
+          </button>
+          <button id="view-sagas-btn" class="flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white flex items-center justify-center gap-1.5">
+            <i class="fa-solid fa-folder-tree"></i> Por Sagas
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Pills Row -->
+      <div class="mt-3 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+        <div class="flex flex-wrap items-center gap-1.5">
+          <button data-filter="all" class="filter-btn is-active px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border border-white/25 bg-white/10 text-white" aria-pressed="true">
+            Todos (500)
+          </button>
+          <button data-filter="canon" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border border-emerald-500/30 text-emerald-300 hover:bg-emerald-500/20 bg-emerald-950/30" aria-pressed="false">
+            <i class="fa-solid fa-circle-check mr-1 text-emerald-400"></i> Canon
+          </button>
+          <button data-filter="mixed" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border border-sky-500/30 text-sky-300 hover:bg-sky-500/20 bg-sky-950/30" aria-pressed="false">
+            <i class="fa-solid fa-book-open mr-1 text-sky-400"></i> Mixto / Novelas
+          </button>
+          <button data-filter="filler" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border border-rose-500/30 text-rose-300 hover:bg-rose-500/20 bg-rose-950/30" aria-pressed="false">
+            <i class="fa-solid fa-ban mr-1 text-rose-400"></i> Relleno
+          </button>
+          <button data-filter="unwatched-canon" class="filter-btn px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 bg-amber-950/30" aria-pressed="false">
+            <i class="fa-solid fa-bolt mr-1 text-amber-400"></i> Ruta Rápida (Sin Relleno)
+          </button>
+        </div>
+
+        <div class="flex items-center gap-2 text-xs text-slate-400">
+          <span id="results-counter" class="font-semibold text-slate-200">Mostrando 500 episodios</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main>
+      <!-- VIEW 1: FULL 500 EPISODES LIQUID GLASS TABLE -->
+      <div id="table-view-container" class="liquid-glass rounded-3xl overflow-hidden border-white/15">
+        <div class="overflow-x-auto max-h-[72vh] overflow-y-auto">
+          <table class="w-full text-left border-collapse">
+            <thead class="sticky top-0 z-20 bg-slate-950/90 backdrop-blur-xl border-b border-white/15 text-[11px] uppercase tracking-wider text-slate-400 font-bold">
+              <tr>
+                <th class="py-3.5 pl-4 pr-2 w-12 text-center">Visto</th>
+                <th class="py-3.5 px-3 w-20">Cap.</th>
+                <th class="py-3.5 px-4">Título del Capítulo en Español</th>
+                <th class="py-3.5 px-4 hidden md:table-cell">Saga / Arco Argumental</th>
+                <th class="py-3.5 px-4 w-40 text-center">Clasificación</th>
+                <th class="py-3.5 pl-2 pr-4 w-12 text-center">Info</th>
+              </tr>
+            </thead>
+            <tbody id="episodes-table-body" class="text-sm divide-y divide-white/5">
+              <!-- Populated dynamically with all 500 episodes -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- VIEW 2: GROUPED BY SAGAS ACCORDION -->
+      <div id="sagas-view-container" class="hidden space-y-4">
+        <!-- Populated dynamically -->
+      </div>
+    </main>
+
+    <!-- Episode Detail Modal (Liquid Glass Drawer) -->
+    <div id="episode-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300">
+      <div id="modal-card" class="liquid-glass rounded-3xl max-w-xl w-full flex flex-col border-white/25 p-6 sm:p-7 transform scale-95 transition-all duration-300 shadow-2xl">
+        <div class="flex items-start justify-between border-b border-white/10 pb-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span id="modal-ep-num" class="px-2.5 py-0.5 rounded-lg bg-orange-500/20 border border-orange-500/40 text-orange-300 text-xs font-extrabold"></span>
+              <span id="modal-badge" class="px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider"></span>
+            </div>
+            <h3 id="modal-title" class="text-xl sm:text-2xl text-white leading-snug font-naruto normal-case tracking-normal"></h3>
+          </div>
+          <button id="modal-close-btn" class="p-2 rounded-full hover:bg-white/10 text-slate-400 hover:text-white transition-colors">
+            <i class="fa-solid fa-xmark text-lg"></i>
+          </button>
+        </div>
+
+        <div class="py-5 space-y-4 text-sm">
+          <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between">
+            <div>
+              <span class="text-[11px] uppercase tracking-wider text-slate-400 block">Saga / Arco</span>
+              <span id="modal-saga" class="font-bold text-white text-sm sm:text-base"></span>
+            </div>
+            <span id="modal-saga-range" class="text-xs px-2.5 py-1 rounded-lg bg-white/10 text-slate-300 font-mono"></span>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Contexto de la Saga:</h4>
+            <p id="modal-desc" class="text-slate-200 text-xs sm:text-sm leading-relaxed"></p>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 text-xs text-slate-200 flex items-start gap-2.5">
+            <i class="fa-solid fa-compass text-orange-400 text-base mt-0.5"></i>
+            <div>
+              <span class="font-bold text-white block mb-0.5">Guía de Visualización:</span>
+              <span id="modal-verdict"></span>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <label class="inline-flex items-center gap-2.5 cursor-pointer select-none text-sm font-medium text-slate-200">
+              <input type="checkbox" id="modal-watched-check" class="chakra-checkbox">
+              <span>Marcar este capítulo como visto</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between gap-2">
+          <button id="modal-prev-btn" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-200 text-xs font-semibold transition-all border border-white/10 flex items-center gap-1.5 disabled:opacity-30 disabled:pointer-events-none">
+            <i class="fa-solid fa-arrow-left"></i> Cap. Anterior
+          </button>
+          <button id="modal-next-btn" class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/15 text-slate-200 text-xs font-semibold transition-all border border-white/10 flex items-center gap-1.5 disabled:opacity-30 disabled:pointer-events-none">
+            Cap. Siguiente <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="liquid-glass rounded-2xl p-5 border-white/10 text-center text-xs text-slate-400 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4 flex-wrap justify-center">
+        <span class="inline-flex items-center gap-1.5 text-emerald-300 font-medium"><span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span> Canon del Manga</span>
+        <span class="inline-flex items-center gap-1.5 text-sky-300 font-medium"><span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span> Mixto / Novelas Oficiales</span>
+        <span class="inline-flex items-center gap-1.5 text-rose-300 font-medium"><span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span> Relleno (Filler)</span>
+      </div>
+      <div>
+        Naruto Shippūden (500 Episodios • 2007–2017) • Progreso guardado automáticamente
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    // 1. COMPLETE ARRAY OF ALL 500 EPISODE TITLES IN SPANISH (Index 0 = Ep 1 ... Index 499 = Ep 500)
+    const EPISODE_TITLES = [
+      // 1 - 32: Rescate del Kazekage
+      "Vuelta a casa", "Akatsuki entra en acción", "Los resultados del entrenamiento", "El Jinchūriki de la Arena", "¡Como el Kazekage...!",
+      "Misión cumplida", "Corre, Kankurō", "El Equipo Kakashi se pone en marcha", "Las lágrimas del Jinchūriki", "Jutsu de sellado: Los Nueve Dragones Ilusorios",
+      "La aprendiz de ninja médico", "La determinación de la anciana retirada", "Un destino entrevisto", "El crecimiento de Naruto", "¡El nombre de la esfera oculta!",
+      "El secreto detrás de un Jinchūriki", "¡La muerte de Gaara!", "¡Entrada forzada! Trampa de apertura", "¡Trampas activadas! Los enemigos del Equipo Guy", "Hiruko contra las dos kunoichi",
+      "El verdadero rostro de Sasori", "La jugada secreta de Chiyo", "'Padre' y 'Madre'", "El Tercer Kazekage", "Tres minutos entre la vida y la muerte",
+      "Diez marionetas contra cien marionetas", "Un sueño imposible", "Las bestias revividas", "¡El despertar de Kakashi!", "La estética de un instante",
+      "La siguiente generación", "El regreso del Kazekage",
+      // 33 - 53: El tan esperado reencuentro (Puente Tenchi)
+      "El nuevo objetivo", "¡A formar! El nuevo Equipo Kakashi", "Una adición innecesaria", "La sonrisa falsa", "Sin título",
+      "Simulación", "El puente del Cielo y la Tierra", "El Kyūbi desatado", "El comienzo de la misión secreta", "Orochimaru contra el Jinchūriki",
+      "Las lágrimas de Sakura", "La verdad sobre la lucha", "Las consecuencias de la traición", "La página inacabada", "¡Infiltración! La guarida de la serpiente venenosa",
+      "Lazos", "Algo importante", "La historia del libro de dibujos", "Reencuentro", "El poder de un Uchiha",
+      "El título",
+      // 54 - 71: Doce Guardianes Ninja
+      "Pesadilla", "El viento", "Serpenteo", "Privado del sueño eterno", "La soledad",
+      "Un nuevo enemigo", "Mutabilidad", "Contacto", "Compañero de equipo", "Los dos reyes",
+      "El fuego negro acecha", "Bloqueado en la oscuridad", "Almas revividas", "Múltiples combates a muerte", "La hora de despertar",
+      "Desesperación", "Resonancia", "Mi amigo",
+      // 72 - 88: Los Destructores Inmortales (Hidan y Kakuzu)
+      "La amenaza que se arrastra en silencio", "La invasión de Akatsuki", "Bajo el cielo estrellado", "La oración del viejo monje", "El siguiente paso",
+      "La escalada de plata", "El juicio dado", "El grito no alcanzado", "Últimas palabras", "La triste noticia",
+      "El Equipo Diez", "Objetivo en la mira", "El poder de Kakuzu", "El terrible secreto", "La genialidad de Shikamaru",
+      "Cuando maldices a alguien, cavas tu propia tumba", "Fūton: Rasen Shuriken",
+      // 89 - 112: Arribo del Tres Colas (Sanbi)
+      "El precio del poder", "La determinación de un shinobi", "El escondite de Orochimaru descubierto", "Encuentro", "Conectando corazones",
+      "Una noche de lluvia", "Los dos amuletos", "El enemigo invisible", "El laberinto de reflejos distorsionados", "El objetivo aparece",
+      "La bestia con cola enfurecida", "Dentro de la niebla", "Los sentimientos respectivos", "¡Reorganización!", "La barrera de cuatro puntas",
+      "Ruptura del elemento cristal", "Batalla por la barrera", "Camelias rojas", "Enemigos peleando juntos", "Guía de la camelia",
+      "El contraataque del sello maldito", "Memorias del pecado", "Promesa rota", "Un lugar al que regresar",
+      // 113 - 143: La Profecía del Maestro y la Venganza (Jiraiya / Itachi)
+      "El pupilo de la serpiente", "El ojo del halcón", "La espada de Zabuza", "Guardián de la prisión de hierro", "Jūgo de la guarida del norte",
+      "¡Formación!", "¡Kakashi Gaiden! ¡La vida de un chico en el campo de batalla! Parte 1", "¡Kakashi Gaiden! ¡La vida de un chico en el campo de batalla! Parte 2", "En movimiento", "Búsqueda",
+      "Choque", "Arte", "Desaparición", "Encuentro en el crepúsculo", "Las aventuras de Jiraiya: Pergamino de la leyenda de Naruto - Parte 1",
+      "Las aventuras de Jiraiya: Pergamino de la leyenda de Naruto - Parte 2", "¡Infiltración! La Aldea Oculta entre la Lluvia", "El hombre que se convirtió en Dios", "¡Activado! Modo Ermitaño", "Encuentro con los Seis Caminos del Dolor",
+      "La historia del galante Jiraiya", "Invitación al banquete", "El momento más largo...", "La luz y la oscuridad del Mangekyō Sharingan", "Amaterasu",
+      "El fin", "El misterio de Tobi", "Destino", "Verdad", "Batalla en el Valle de las Nubes y Relámpagos",
+      "El " + "Ocho Colas contra Sasuke",
+      // 144 - 151: Liberación del Seis Colas
+      "El viajero", "El sucesor de la técnica prohibida", "El deseo de la sucesora", "El pasado del ninja renegado", "Heredera de la oscuridad",
+      "Separación", "El Jutsu Prohibido liberado", "Maestro y pupilo",
+      // 152 - 175: Los Dos Salvadores (Asalto de Pain)
+      "Noticias sombrías", "Tras la sombra del maestro", "Descifrado", "El primer desafío", "Superando al maestro",
+      "Ataque a Konoha", "El poder de creer", "Pain contra Kakashi", "El misterio de Pain", "Mi apellido es Sarutobi, mi nombre Konohamaru",
+      "El mundo conocerá el dolor", "¡Explota! Modo Sabio", "¡Peligro! El Modo Sabio desaparece", "Captura del Kyūbi completada", "Confesiones",
+      "Chibaku Tensei", "El Cuarto Hokage", "Los dos discípulos", "¡Gran aventura! ¡La búsqueda de la herencia del Cuarto Hokage! Parte 1", "¡Gran aventura! ¡La búsqueda de la herencia del Cuarto Hokage! Parte 2",
+      "Reunión", "El origen de Pain", "La historia de Naruto Uzumaki", "El héroe de Konoha",
+      // 176 - 196: Saga del Pasado: El Lugar de Konoha
+      "Iruka, el maestro novato", "La prueba de Iruka", "La determinación de Iruka", "Jonin a cargo: Kakashi Hatake", "Inari, coraje puesto a prueba",
+      "Naruto, escuela de revancha", "El lazo de Gaara", "Brote de enfermedad: Naruto", "¡Salida! El equipo de Tenten", "Territorio animal",
+      "La medicina de la juventud", "Maestro y estudiante: El entrenamiento de las tripas", "Registro de la historia del ninja valiente", "Sasuke y la enciclopedia de las patas", "Naruto y el viejo soldado",
+      "La balada de Kakashi", "Crónicas de Neji", "El hombre que murió dos veces", "La peor carrera de tres piernas", "La cooperación del Equipo 10",
+      "Aceleración hacia la oscuridad",
+      // 197 - 222: Cumbre de los Cinco Kages
+      "El Sexto Hokage Danzō", "La víspera de la reunión de los Cinco Kages", "¡Entran los Cinco Kages!", "La súplica de Naruto", "Decisión dolorosa",
+      "Tormenta de rayos", "El camino ninja de Sasuke", "El poder de los Cinco Kages", "Declaración de guerra", "Los sentimientos de Sakura",
+      "La Bestia con Cola contra la Bestia sin Cola", "Como un amigo", "El brazo derecho de Danzō", "El Kinjutsu ocular", "Danzō Shimura",
+      "La resolución de Sakura", "Lazos perdidos", "La carga que debo soportar", "Dos destinos", "Shinobi de alto nivel",
+      "El infiltrado", "Las Grandes Naciones se movilizan", "El Hokage Kakashi", "La profecía del Gran Sapo Sabio", "Almacenamiento",
+      "La decisión de los Cinco Kages",
+      // 223 - 242: Vida Paradisíaca en un Barco
+      "El joven y el mar", "El ninja de Benisu", "El barco fantasma maldito", "La isla acorazada", "La isla del olvido",
+      "Pelea, Rock Lee", "¡Comer o morir! Los hongos del infierno", "La contraofensiva de las sombras", "La ruta marina cerrada", "Reunión de chicas de Konoha",
+      "Entra el falso Naruto", "El pupilo favorito de Naruto", "La kunoichi de la Aldea Nadeshiko", "El respaldo de los amigos", "¡Ah, mi heroína Lady Tsunade!",
+      "El día libre de Sai", "El legendario Ino-Shika-Chō", "La determinación de Kiba", "Kakashi, mi eterno rival", "El juramento de Naruto",
+      // 243 - 256: El Control del Kyūbi y el Encuentro del Destino
+      "¡Desembarco! ¿La isla paradisíaca?", "Killer Bee y Motoi", "El próximo desafío: ¡Naruto contra el Kyūbi!", "El destello naranja", "El Kyūbi es el objetivo",
+      "El combate del Cuarto Hokage", "Gracias", "La bestia rara contra el monstruo: ¡Comienza la batalla en el paraíso!", "El hombre llamado Kisame", "El ángel heraldo de la muerte",
+      "El puente hacia la paz", "Misión ultrasecreta de rango S", "El artista regresa", "¡Reunión! Las Fuerzas Aliadas Shinobi",
+      // 257 - 275: Cuarta Guerra Mundial Shinobi: Cuenta Regresiva y Enfrentamiento
+      "Encuentro", "Rivales", "Grieta", "Separación", "Por mi amigo",
+      "¡Comienza la guerra!", "Sai y Shin", "El secreto del Edo Tensei", "El reencuentro con un viejo enemigo", "El primero y el último oponente",
+      "El brillante estratega de Konoha", "¡Sus respectivas batallas!", "Palabra tabú", "Vínculos dorados", "Road to Sakura",
+      "Mifune contra Hanzō", "La verdadera bondad", "La completa formación Ino-Shika-Chō", "Un mensaje desde el corazón",
+      // 276 - 289: Guerra y Relleno Intercalado
+      "El ataque de la Estatua Gedo", "El símbolo de la reconciliación", "El ninja médico en la mira", "La trampa del Zetsu Blanco", "La estética del artista",
+      "Las fuerzas aliadas de las mamás", "¡La pareja más fuerte de la historia!", "¡Dos soles!", "¡Kabutowari! Jinin Akebino", "La usuaria del Elemento Quemar: Pakura de la Arena",
+      "Cosas que no puedes recuperar", "Aquello por lo que vale la pena apostar", "Peligro: ¡La combinación Jinpachi y Kushimaru!", "¡La espada del rayo! Ameyuri Ringo",
+      // 290 - 295: Saga Especial Chikara (Poder)
+      "Chikara - Episodio 1", "Chikara - Episodio 2", "Chikara - Episodio 3", "Chikara - Episodio 4", "Chikara - Episodio 5",
+      "Chikara - Episodio Final",
+      // 296 - 320: Guerra Shinobi: Clímax y Relleno de Almas Reanimadas
+      "¡Naruto entra en la guerra!", "Los sentimientos de un padre, el amor de una madre", "Finalmente se encuentran: ¡Naruto contra Itachi!", "El reconocido", "El Mizukage, la almeja gigante y el espejismo",
+      "Contradicción", "Terror: El demonio de vapor", "Fantasmas del pasado", "Jutsu de transferencia de inframundo", "Los vengadores",
+      "El ojo del corazón", "Desapareciendo en la luz de la luna", "Media luna creciente", "Misión de rango A: El concurso de comida noble", "El castillo caído",
+      "Prologue of Road to Ninja", "El viejo maestro y el ojo del dragón", "Lluvia seguida de nieve, con algún relámpago", "La triste lluvia de sol", "Nieve persistente",
+      "¡Reanimación de las fuerzas aliadas!", "¡Shino contra Torune!", "Un vacío en el corazón: El otro Jinchūriki", "El alma que vive dentro de la marioneta", "¡Corre, Omoi!",
+      // 321 - 348: Clímax: Madara, Kurama, Itachi & Sasuke vs Kabuto, Tobi
+      "Llegan los refuerzos", "Madara Uchiha", "¡Los Cinco Kages se reúnen!", "El Jinchūriki irrompible y las burbujas que explotan", "¡Nueve Colas contra Cuatro Colas!",
+      "Cuatro Colas, el Rey de los Monos Sabios", "Nueve Colas", "Kurama", "El equipo de dos hombres", "La promesa de la victoria",
+      "Ojos que ven en la oscuridad", "Voluntad de piedra", "Los riesgos del Edo Tensei", "Hermanos luchando juntos", "A cada uno su propia Konoha",
+      "Kabuto Yakushi", "Activación: Izanami", "Izanagi e Izanami", "Te amaré por siempre", "Edo Tensei: ¡Liberación!",
+      "¡El regreso de Orochimaru!", "El secreto del Ninjutsu Espacio-Tiempo", "¡¡Quién demonios eres tú!!", "Obito y Madara", "Estoy en el infierno",
+      "Mundo de sueños", "Sombra sigilosa", "La nueva Akatsuki",
+      // 349 - 361: Kakashi ANBU: La Sombra de las Operaciones Encubiertas
+      "Una máscara que oculta el corazón", "La muerte de Minato", "Las células de Hashirama", "El ninja renegado: Orochimaru", "El sujeto de pruebas de Orochimaru",
+      "Sus propios caminos", "El Sharingan en la mira", "Un shinobi de Konoha", "Un Uchiha ANBU", "Golpe de Estado",
+      "La noche de la tragedia", "Jonin supervisor", "El Equipo Siete",
+      // 362 - 393: El Regreso de los Hokages, Obito Jinchūriki y Madara
+      "La decisión de Kakashi", "¡El Jutsu de la Alianza Shinobi!", "Lo que nos mantiene unidos", "Los que bailan en las sombras", "Los que todo lo saben",
+      "Hashirama y Madara", "La Era de los Estados en Guerra", "El verdadero sueño", "La respuesta de Sasuke", "Agujero",
+      "Algo para llenar el vacío", "¡Equipo Siete, reuníos!", "El nuevo triple punto muerto", "Kakashi contra Obito", "Directrices para el saqueo del Kyūbi",
+      "Naruto contra Mecha-Naruto", "El Jinchūriki del Diez Colas", "Ruptura", "El día en que nació Naruto", "El Dios Árbol",
+      "El sueño de un shinobi", "Persiguiendo la esperanza", "Un corazón lleno de amigos", "Obito Uchiha", "Te estoy vigilando siempre",
+      "La promesa cumplida", "Mi primer amigo", "La hermana mayor adorada", "La decisión de Hanabi", "Madara Uchiha se levanta",
+      "El corazón oculto", "Un verdadero final",
+      // 394 - 413: Los Nuevos Exámenes Chūnin (En las Huellas de Naruto)
+      "Los nuevos Exámenes Chūnin", "¡Comienzan los Exámenes Chūnin!", "Las tres preguntas", "Alguien digno de ser líder", "La noche antes de la segunda prueba",
+      "Supervivencia en el Desierto del Demonio", "Como un usuario de Taijutsu", "El máximo nivel", "Huida contra persecución", "Coraje inquebrantable",
+      "La angustia de Tenten", "Las dos atrapadas", "Mi propio lugar", "Ninjutsu médico del clan Yamanaka", "La marioneta maldita",
+      "A espaldas de los dos", "El complot se pone en marcha", "La bestia con cola en la mira", "El juicio de Neji", "Confiando las esperanzas al futuro",
+      // 414 - 431: Guy Ocho Puertas, Rikudō y El Tsukuyomi Infinito
+      "Al borde de la muerte", "Los dos Mangekyō", "La formación del Equipo Minato", "Tú serás mi respaldo", "La Bestia Azul contra Madara de los Seis Caminos",
+      "La juventud de papá", "La Formación de las Ocho Puertas Internas", "El Sabio de los Seis Caminos", "Los que heredarán", "El rival de Naruto",
+      "Para levantarse", "El sueño infinito", "El Tsukuyomi Infinito", "Hacia el mundo de los sueños", "Donde pertenece Tenten",
+      "Killer Bee Rappūden: Pergamino del Cielo", "Killer Bee Rappūden: Pergamino de la Tierra", "Esa sonrisa una vez más",
+      // 432 - 450: Manual Shinobi de Jiraiya: La Historia de Naruto el Galante
+      "El ninja perdedor", "Salida: La misión de búsqueda", "Equipo Jiraiya", "Orden de prioridades", "El hombre enmascarado",
+      "El poder sellado", "Reglas o compañeros", "El niño de la profecía", "El pájaro enjaulado", "Regreso a casa",
+      "Caminos mutuos", "La diferencia de poder", "Deserción de la aldea", "Perseguidores", "Colisión",
+      "Otra luna", "Camaradas", "Los shinobi se unen", "Rivales",
+      // 451 - 458: Itachi Shinden: Luz y Oscuridad
+      "Nace una vida, muere una vida", "El prodigio", "El dolor de vivir", "La solicitud de Shisui", "Noche de luna",
+      "La oscuridad de Akatsuki", "Compañero", "Verdad",
+      // 459 - 479: Kaguya Ōtsutsuki, Origen del Ninshū y Batalla Final Naruto vs Sasuke
+      "Ella, la del principio", "Kaguya Ōtsutsuki", "Hagoromo y Hamura", "Un pasado fabricado", "¡El número uno en sorprender a la gente!",
+      "Ninshū", "Ashura e Indra", "Viaje de prueba", "La determinación de Ashura", "El sucesor",
+      "Una misión especial", "Conectando pensamientos", "Siempre los estaré observando", "Definitivamente tú lo harás", "El Sharingan de nuevo",
+      "Felicidades", "El Valle del Fin", "La última batalla", "Naruto y Sasuke", "El sello de la reconciliación",
+      "¡Naruto Uzumaki!",
+      // 480 - 483: Infancia (Boyhood Arc)
+      "Naruto y Hinata", "Sasuke y Sakura", "Gaara y Shikamaru", "Jiraiya y Kakashi",
+      // 484 - 488: Sasuke Shinden: Libro del Amanecer
+      "La bomba humana", "El Coliseo", "Fūshin", "El Ketsuryūgan", "El último hombre",
+      // 489 - 493: Shikamaru Hiden: La Nube que Flota en el Silencio
+      "El estado de las cosas", "Nubes oscuras", "Imprudencia", "Nube de sospecha", "Amanecer",
+      // 494 - 500: Konoha Hiden: El Día Perfecto para una Boda
+      "La boda de Naruto", "Un regalo de bodas a toda potencia", "Vapor y píldoras de comida", "El regalo del Kazekage", "La última misión",
+      "El resultado de la misión secreta", "El mensaje"
+    ];
+
+    // 2. SAGAS & ARCS METADATA
+    const SAGAS = [
+      { id: 1, name: "Rescate del Kazekage", start: 1, end: 32, desc: "Naruto regresa a Konoha tras entrenar con Jiraiya y parte a Sunagakure para rescatar a Gaara de Deidara y Sasori.", verdict: "Imprescindible. Gran arranque de Shippuden y combate legendario contra Sasori." },
+      { id: 2, name: "El tan esperado reencuentro (Puente Tenchi)", start: 33, end: 53, desc: "Sai y Yamato se integran al Equipo 7 en una misión encubierta para interceptar a Orochimaru y encontrar a Sasuke.", verdict: "Canon esencial. Naruto desata las 4 colas y vuelve a ver a Sasuke Uchiha." },
+      { id: 3, name: "Doce Guardianes Ninja (Sora)", start: 54, end: 71, desc: "Arco sobre el pasado de Asuma en los Doce Guardianes y Sora, un joven monje con chakra residual del Nueve Colas.", verdict: "Relleno (excepto primeros minutos de entrenamiento). Se puede saltar al 72." },
+      { id: 4, name: "Los Destructores Inmortales (Hidan y Kakuzu)", start: 72, end: 88, desc: "El Equipo 10 de Asuma y Shikamaru enfrenta al dúo inmortal de Akatsuki mientras Naruto crea el Rasen Shuriken.", verdict: "Obra maestra absoluta del manga. Emoción, estrategia y animación de alto calibre." },
+      { id: 5, name: "Arribo del Tres Colas (Sanbi y Guren)", start: 89, end: 112, desc: "Guren (usuaria del Elemento Cristal) y el niño Yukimaru son enviados por Orochimaru para controlar al Sanbi.", verdict: "Relleno extenso (el cap 89 y 112 tienen breves escenas canon)." },
+      { id: 6, name: "La Profecía del Maestro y la Venganza", start: 113, end: 143, desc: "Jiraiya se infiltra en la Aldea de la Lluvia contra Pain y Sasuke se enfrenta finalmente a muerte contra su hermano Itachi.", verdict: "Punto cumbre de toda la franquicia. De visión 100% obligatoria." },
+      { id: 7, name: "Liberación del Seis Colas (Utakata)", start: 144, end: 151, desc: "Naruto protege a Hotaru junto con Utakata, el Jinchūriki del Seis Colas.", verdict: "Relleno corto que da trasfondo a Utakata antes de su captura." },
+      { id: 8, name: "Los Dos Salvadores (El Asalto de Pain)", start: 152, end: 175, desc: "Pain destruye Konoha mientras Naruto domina el Modo Sabio en el Monte Myōboku para librar la batalla más decisiva por la aldea.", verdict: "El clímax más icónico de Naruto Shippuden (170-171 son un especial de relleno intercalado)." },
+      { id: 9, name: "Saga del Pasado: El Lugar de Konoha", start: 176, end: 196, desc: "Flashbacks de cuando Naruto era niño tras la reconstrucción de la aldea.", verdict: "Relleno nostálgico (los caps 176-178 y 180-181 tienen breves escenas canon al inicio/final)." },
+      { id: 10, name: "La Cumbre de los Cinco Kages", start: 197, end: 222, desc: "Danzō viaja a la reunión de los Kages en el País del Hierro. Sasuke asalta la cumbre y Obito declara la Cuarta Guerra Mundial.", verdict: "Canon fundamental que detona el conflicto final de la serie." },
+      { id: 11, name: "Vida Paradisíaca en un Barco", start: 223, end: 242, desc: "Viaje marítimo de Naruto hacia el País del Rayo con aventuras autoconclusivas.", verdict: "Relleno 100% omitible. Puedes saltar directamente al episodio 243." },
+      { id: 12, name: "El Control del Kyūbi y el Encuentro del Destino", start: 243, end: 256, desc: "Naruto entrena con Killer Bee para controlar el chakra de Kurama y conoce la historia de amor y sacrificio de Minato y Kushina.", verdict: "Canon imprescindible y sumamente emotivo." },
+      { id: 13, name: "Cuarta Guerra Shinobi: Enfrentamiento", start: 257, end: 289, desc: "La Alianza Shinobi choca contra el ejército de Zetsus y los ninjas legendarios revividos por el Edo Tensei de Kabuto.", verdict: "Mezcla capítulos de guerra canónicos con episodios de relleno del frente secundario." },
+      { id: 14, name: "Saga Especial: Poder (Chikara)", start: 290, end: 295, desc: "Miniserie especial conmemorativa de 6 episodios con animación de calidad cinematográfica sobre clones e investigación de Kabuto.", verdict: "Relleno pero con animación espectacular digna de una película." },
+      { id: 15, name: "Cuarta Guerra Shinobi: Clímax (Parte 1)", start: 296, end: 320, desc: "Naruto entra a la batalla en todos los frentes mientras aparecen antiguos ninjas revividos.", verdict: "Los caps 296-302 son canon puro; del 303 al 320 es un bloque de relleno bélico." },
+      { id: 16, name: "Cuarta Guerra Shinobi: Clímax (Madara, Kurama y Tobi)", start: 321, end: 348, desc: "Aparición de Madara Uchiha, alianza total entre Naruto y Kurama, Itachi y Sasuke vs Kabuto, y revelación del rostro de Tobi (Obito).", verdict: "Canon de altísimo impacto sin apenas interrupciones." },
+      { id: 17, name: "Kakashi ANBU: La Sombra de las Operaciones Encubiertas", start: 349, end: 361, desc: "El pasado de Kakashi Hatake en ANBU bajo el mando de Minato y Danzō junto a Yamato e Itachi Uchiha.", verdict: "Arco de anime/mixto muy aclamado que enriquece la historia de Kakashi, Yamato e Itachi." },
+      { id: 18, name: "El Regreso de los Hokages y Obito Jinchūriki", start: 362, end: 393, desc: "Los 4 Hokages son revividos, Hashirama relata el pasado de Konoha, Obito se transforma en Jinchūriki del Diez Colas y Madara renace.", verdict: "Canon épico (solo 376-377 y 389-390 son relleno)." },
+      { id: 19, name: "En las Huellas de Naruto: Los Nuevos Exámenes Chūnin", start: 394, end: 413, desc: "Flashback sobre cómo los amigos de Konoha y la Arena hicieron el examen Chūnin durante los 2 años que Naruto entrenó fuera.", verdict: "Relleno largo que corta la batalla contra Madara. Recomendado saltar al 414." },
+      { id: 20, name: "Madara de los Seis Caminos y Las Ocho Puertas de Guy", start: 414, end: 431, desc: "Might Guy abre la Octava Puerta de la Muerte contra Madara Rikudō, Naruto y Sasuke reciben el poder de Hagoromo y se activa el Tsukuyomi Infinito.", verdict: "Contiene momentos cumbre del manga combinados con sueños del Tsukuyomi." },
+      { id: 21, name: "Manual Shinobi de Jiraiya: La Historia de Naruto el Galante", start: 432, end: 450, desc: "El sueño de Tsunade en el Tsukuyomi Infinito leyendo una novela alternativa donde Minato, Kushina y Jiraiya siguen vivos.", verdict: "Relleno de universo alternativo. Omitir para continuar la batalla final." },
+      { id: 22, name: "Itachi Shinden: Luz y Oscuridad (Novela)", start: 451, end: 458, desc: "Adaptación de las novelas oficiales sobre la vida de Itachi Uchiha desde su niñez hasta la masacre del clan.", verdict: "Novela canónica muy recomendada." },
+      { id: 23, name: "El Origen del Ninshū y Kaguya Ōtsutsuki", start: 459, end: 470, desc: "Kaguya Ōtsutsuki despierta, se revela el pasado de Hagoromo, Hamura, Indra y Ashura, y el Equipo 7 lucha entre dimensiones.", verdict: "Clímax contra la diosa conejo y sacrificio de Obito." },
+      { id: 24, name: "La Batalla Final: Naruto vs Sasuke", start: 471, end: 479, desc: "Tras sellar a Kaguya, Naruto y Sasuke libran el combate definitivo en el Valle del Fin para decidir el futuro del mundo shinobi.", verdict: "Cierre magistral del manga original de Masashi Kishimoto." },
+      { id: 25, name: "Infancia (Recuerdos de Niñez)", start: 480, end: 483, desc: "Episodios nostálgicos sobre la infancia de los protagonistas.", verdict: "Relleno artístico poético post-batalla." },
+      { id: 26, name: "Sasuke Shinden: Libro del Amanecer (Novela)", start: 484, end: 488, desc: "Sasuke viaja por el mundo investigando el misterio del Ketsuryūgan para redimir sus pecados.", verdict: "Novela oficial epílogo." },
+      { id: 27, name: "Shikamaru Hiden: La Nube que Flota en el Silencio (Novela)", start: 489, end: 493, desc: "Shikamaru lidera una misión de infiltración en el País del Silencio tras la guerra.", verdict: "Novela oficial epílogo." },
+      { id: 28, name: "Konoha Hiden: El Día Perfecto para una Boda (Novela)", start: 494, end: 500, desc: "Toda la Aldea de la Hoja busca el regalo de bodas perfecto para el matrimonio de Naruto Uzumaki y Hinata Hyūga.", verdict: "Cierre oficial y emotivo de Naruto Shippuden." }
+    ];
+
+    // 3. EXACT CLASSIFICATION OF EVERY EPISODE (1 to 500)
+    // Filler ranges and specific episodes based on official anime-manga correspondence
+    const FILLER_SET = new Set();
+    const MIXED_SET = new Set();
+
+    function addRange(set, a, b) {
+      for (let i = a; i <= b; i++) set.add(i);
+    }
+
+    // Populate Filler episodes
+    [28, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71].forEach(e => FILLER_SET.add(e));
+    addRange(FILLER_SET, 90, 111);
+    addRange(FILLER_SET, 144, 151);
+    addRange(FILLER_SET, 170, 171);
+    addRange(FILLER_SET, 176, 196);
+    addRange(FILLER_SET, 223, 242);
+    addRange(FILLER_SET, 257, 260);
+    [271, 279, 280, 281, 284, 285, 286, 287, 288, 289].forEach(e => FILLER_SET.add(e));
+    addRange(FILLER_SET, 290, 295);
+    addRange(FILLER_SET, 303, 320);
+    [347, 348].forEach(e => FILLER_SET.add(e));
+    addRange(FILLER_SET, 349, 361); // Kakashi ANBU (often watched, we'll mark key ones or keep accessible)
+    [376, 377, 388, 389, 390].forEach(e => FILLER_SET.add(e));
+    addRange(FILLER_SET, 394, 413);
+    [416, 422, 423].forEach(e => FILLER_SET.add(e));
+    addRange(FILLER_SET, 427, 450);
+    [460, 461, 462, 464, 465, 466, 467, 468].forEach(e => FILLER_SET.add(e));
+    addRange(FILLER_SET, 480, 483);
+
+    // Populate Mixed / Canon Novel / High-value Anime Canon episodes
+    [54, 55, 56, 71, 89, 112, 176, 178, 180, 181, 327, 347, 417, 426, 469].forEach(e => {
+      FILLER_SET.delete(e);
+      MIXED_SET.add(e);
+    });
+    // Itachi Shinden & Post-War Official Novels (451-458, 484-500) -> Mixed / Novel Canon
+    addRange(MIXED_SET, 451, 458);
+    addRange(MIXED_SET, 484, 500);
+
+    // Build complete 500-episode master array
+    const ALL_EPISODES = EPISODE_TITLES.map((title, idx) => {
+      const epNum = idx + 1;
+      const sagaObj = SAGAS.find(s => epNum >= s.start && epNum <= s.end) || SAGAS[0];
+      let type = 'canon';
+      if (MIXED_SET.has(epNum)) {
+        type = 'mixed';
+      } else if (FILLER_SET.has(epNum)) {
+        type = 'filler';
+      }
+      return {
+        num: epNum,
+        title: title,
+        sagaId: sagaObj.id,
+        sagaName: sagaObj.name,
+        sagaRange: `Caps. ${sagaObj.start}–${sagaObj.end}`,
+        sagaDesc: sagaObj.desc,
+        sagaVerdict: sagaObj.verdict,
+        type: type
+      };
+    });
+
+    // LocalStorage Watched State (survives refresh and leaving the page)
+    const STORAGE_KEY = 'naruto_shippuden_watched_v2';
+    const STORAGE_KEY_LEGACY = 'naruto_shippuden_watched';
+
+    function readWatchedFromStorage() {
+      const keys = [STORAGE_KEY, STORAGE_KEY_LEGACY];
+      for (const key of keys) {
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) continue;
+          const parsed = JSON.parse(raw);
+          const list = Array.isArray(parsed)
+            ? parsed
+            : (parsed && Array.isArray(parsed.watched) ? parsed.watched : null);
+          if (!list) continue;
+          return new Set(
+            list.map(n => parseInt(n, 10)).filter(n => Number.isInteger(n) && n >= 1 && n <= 500)
+          );
+        } catch (err) {
+          console.warn('No se pudo leer el progreso guardado:', err);
+        }
+      }
+      return new Set();
+    }
+
+    let watchedSet = readWatchedFromStorage();
+
+    function saveWatched() {
+      const payload = JSON.stringify([...watchedSet].sort((a, b) => a - b));
+      try {
+        localStorage.setItem(STORAGE_KEY, payload);
+      } catch (err) {
+        console.warn('No se pudo guardar el progreso:', err);
+      }
+      updateDashboardStats();
+    }
+
+    // Current UI Filter State
+    let currentView = 'table'; // 'table' | 'sagas'
+    let currentFilter = 'all'; // 'all' | 'canon' | 'mixed' | 'filler' | 'unwatched-canon'
+    let currentSagaId = 'all';
+    let searchQuery = '';
+    let activeModalEpNum = 1;
+
+    // DOM References
+    const tableBody = document.getElementById('episodes-table-body');
+    const sagasContainer = document.getElementById('sagas-view-container');
+    const tableViewContainer = document.getElementById('table-view-container');
+    const searchInput = document.getElementById('search-input');
+    const clearSearchBtn = document.getElementById('clear-search');
+    const sagaSelect = document.getElementById('saga-select');
+    const resultsCounter = document.getElementById('results-counter');
+    const viewTableBtn = document.getElementById('view-table-btn');
+    const viewSagasBtn = document.getElementById('view-sagas-btn');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // Populate Saga Select Dropdown
+    SAGAS.forEach(s => {
+      const opt = document.createElement('option');
+      opt.value = String(s.id);
+      opt.textContent = `${s.start}-${s.end}: ${s.name}`;
+      sagaSelect.appendChild(opt);
+    });
+
+    // Helper for badge styling
+    function getBadgeConfig(type) {
+      if (type === 'canon') {
+        return {
+          label: 'Manga Canon',
+          shortLabel: 'Canon',
+          classes: 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.25)]',
+          dot: 'bg-emerald-400'
+        };
+      }
+      if (type === 'mixed') {
+        return {
+          label: 'Mixto / Novela',
+          shortLabel: 'Mixto/Novela',
+          classes: 'bg-sky-500/20 text-sky-300 border border-sky-500/40 shadow-[0_0_10px_rgba(14,165,233,0.25)]',
+          dot: 'bg-sky-400'
+        };
+      }
+      return {
+        label: 'Relleno (Filler)',
+        shortLabel: 'Relleno',
+        classes: 'bg-rose-500/20 text-rose-300 border border-rose-500/40 shadow-[0_0_10px_rgba(244,63,94,0.25)]',
+        dot: 'bg-rose-400'
+      };
+    }
+
+    // Update top dashboard statistics
+    function updateDashboardStats() {
+      const canonCount = ALL_EPISODES.filter(e => e.type === 'canon').length;
+      const mixedCount = ALL_EPISODES.filter(e => e.type === 'mixed').length;
+      const fillerCount = ALL_EPISODES.filter(e => e.type === 'filler').length;
+      const watchedCount = watchedSet.size;
+
+      document.getElementById('stat-canon-count').textContent = canonCount;
+      document.getElementById('stat-canon-pct').textContent = `${((canonCount / 500) * 100).toFixed(1)}%`;
+
+      document.getElementById('stat-mixed-count').textContent = mixedCount;
+      document.getElementById('stat-mixed-pct').textContent = `${((mixedCount / 500) * 100).toFixed(1)}%`;
+
+      document.getElementById('stat-filler-count').textContent = fillerCount;
+      document.getElementById('stat-filler-pct').textContent = `${((fillerCount / 500) * 100).toFixed(1)}%`;
+
+      document.getElementById('stat-watched-count').textContent = `${watchedCount}/500`;
+      const watchedPct = ((watchedCount / 500) * 100).toFixed(1);
+      document.getElementById('stat-watched-pct').textContent = `${watchedPct}% visto`;
+      document.getElementById('watched-bar').style.width = `${watchedPct}%`;
+    }
+
+    // Filter episodes according to current criteria
+    function getFilteredEpisodes() {
+      const q = searchQuery.trim().toLowerCase();
+      const isNumberSearch = /^\d+$/.test(q);
+      const exactNum = isNumberSearch ? parseInt(q, 10) : null;
+
+      return ALL_EPISODES.filter(ep => {
+        // Filter by type pill
+        if (currentFilter === 'canon' && ep.type !== 'canon') return false;
+        if (currentFilter === 'mixed' && ep.type !== 'mixed') return false;
+        if (currentFilter === 'filler' && ep.type !== 'filler') return false;
+        if (currentFilter === 'unwatched-canon' && ep.type === 'filler') return false;
+
+        // Filter by saga dropdown
+        if (currentSagaId !== 'all' && String(ep.sagaId) !== currentSagaId) return false;
+
+        // Filter by search query
+        if (q) {
+          if (isNumberSearch) {
+            return ep.num === exactNum || String(ep.num).includes(q);
+          }
+          const inTitle = ep.title.toLowerCase().includes(q);
+          const inSaga = ep.sagaName.toLowerCase().includes(q);
+          return inTitle || inSaga;
+        }
+        return true;
+      });
+    }
+
+    // Render View 1: Full Liquid Glass Table
+    function renderTableView(filtered) {
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-12 text-center text-slate-400">
+              <i class="fa-solid fa-scroll text-3xl mb-2 block text-slate-500"></i>
+              No se encontraron capítulos que coincidan con tu búsqueda.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      const rowsHtml = filtered.map(ep => {
+        const badge = getBadgeConfig(ep.type);
+        const isWatched = watchedSet.has(ep.num);
+        return `
+          <tr class="liquid-row group cursor-pointer ${isWatched ? 'opacity-60 bg-white/[0.02]' : ''}" data-ep="${ep.num}">
+            <td class="py-3 pl-4 pr-2 text-center" onclick="event.stopPropagation()">
+              <input type="checkbox" class="chakra-checkbox ep-check" data-ep="${ep.num}" ${isWatched ? 'checked' : ''} title="Marcar capítulo ${ep.num} como visto">
+            </td>
+            <td class="py-3 px-3 font-mono font-extrabold text-orange-400 text-xs sm:text-sm whitespace-nowrap">
+              #${String(ep.num).padStart(3, '0')}
+            </td>
+            <td class="py-3 px-4">
+              <div class="font-semibold text-white group-hover:text-orange-300 transition-colors text-xs sm:text-sm">
+                ${ep.title}
+              </div>
+              <div class="text-[11px] text-slate-400 md:hidden mt-0.5">
+                ${ep.sagaName}
+              </div>
+            </td>
+            <td class="py-3 px-4 hidden md:table-cell text-xs text-slate-300">
+              <span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">${ep.sagaName}</span>
+            </td>
+            <td class="py-3 px-4 text-center whitespace-nowrap">
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${badge.classes}">
+                <span class="w-1.5 h-1.5 rounded-full ${badge.dot}"></span>
+                ${badge.shortLabel}
+              </span>
+            </td>
+            <td class="py-3 pl-2 pr-4 text-center">
+              <button class="w-7 h-7 rounded-lg bg-white/5 group-hover:bg-orange-500/20 text-slate-400 group-hover:text-orange-300 transition-all inline-flex items-center justify-center">
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      tableBody.innerHTML = rowsHtml;
+    }
+
+    // Render View 2: Grouped by Sagas Accordion
+    function renderSagasView(filtered) {
+      const groupedMap = new Map();
+      filtered.forEach(ep => {
+        if (!groupedMap.has(ep.sagaId)) {
+          groupedMap.set(ep.sagaId, []);
+        }
+        groupedMap.get(ep.sagaId).push(ep);
+      });
+
+      if (groupedMap.size === 0) {
+        sagasContainer.innerHTML = `
+          <div class="liquid-glass rounded-2xl p-10 text-center text-slate-400">
+            No se encontraron sagas ni episodios con este filtro.
+          </div>
+        `;
+        return;
+      }
+
+      const cardsHtml = [];
+      SAGAS.forEach(saga => {
+        const eps = groupedMap.get(saga.id);
+        if (!eps || eps.length === 0) return;
+
+        const canonInSaga = eps.filter(e => e.type === 'canon').length;
+        const fillerInSaga = eps.filter(e => e.type === 'filler').length;
+        const mixedInSaga = eps.filter(e => e.type === 'mixed').length;
+
+        let dominantType = 'canon';
+        if (fillerInSaga > canonInSaga && fillerInSaga >= mixedInSaga) dominantType = 'filler';
+        else if (mixedInSaga > canonInSaga && mixedInSaga > fillerInSaga) dominantType = 'mixed';
+        const sagaBadge = getBadgeConfig(dominantType);
+
+        const epItemsHtml = eps.map(ep => {
+          const b = getBadgeConfig(ep.type);
+          const watched = watchedSet.has(ep.num);
+          return `
+            <div class="flex items-center justify-between p-2.5 rounded-xl bg-slate-950/50 hover:bg-white/10 border border-white/10 transition-all cursor-pointer group" data-ep="${ep.num}">
+              <div class="flex items-center gap-3 min-w-0 pr-2">
+                <input type="checkbox" class="chakra-checkbox ep-check flex-shrink-0" data-ep="${ep.num}" ${watched ? 'checked' : ''} onclick="event.stopPropagation()">
+                <span class="font-mono text-xs font-bold text-orange-400 flex-shrink-0">#${String(ep.num).padStart(3, '0')}</span>
+                <span class="text-xs sm:text-sm font-medium text-slate-100 group-hover:text-orange-200 truncate">${ep.title}</span>
+              </div>
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold flex-shrink-0 ${b.classes}">
+                <span class="w-1.5 h-1.5 rounded-full ${b.dot}"></span>
+                ${b.shortLabel}
+              </span>
+            </div>
+          `;
+        }).join('');
+
+        cardsHtml.push(`
+          <div class="liquid-glass-card rounded-2xl overflow-hidden border border-white/15">
+            <div class="p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer saga-header" data-saga-card="${saga.id}">
+              <div class="flex items-start gap-3.5">
+                <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/15 flex flex-col items-center justify-center flex-shrink-0 text-center">
+                  <span class="text-[9px] uppercase text-slate-400 font-bold">Caps</span>
+                  <span class="text-xs font-extrabold text-orange-400">${saga.start}-${saga.end}</span>
+                </div>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2 mb-1">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold ${sagaBadge.classes}">
+                      ${sagaBadge.label}
+                    </span>
+                    <span class="text-xs text-slate-400">${eps.length} capítulos listados</span>
+                  </div>
+                  <h3 class="text-base sm:text-lg text-white font-naruto tracking-normal">${saga.name}</h3>
+                  <p class="text-xs text-slate-300 mt-0.5">${saga.desc}</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-end gap-2">
+                <span class="text-xs text-orange-300 font-semibold">Desplegar capítulos</span>
+                <i class="fa-solid fa-chevron-down text-xs text-slate-300 transition-transform saga-chevron"></i>
+              </div>
+            </div>
+            <div class="saga-episodes-panel px-4 pb-4 pt-2 border-t border-white/10 grid grid-cols-1 md:grid-cols-2 gap-2">
+              ${epItemsHtml}
+            </div>
+          </div>
+        `);
+      });
+
+      sagasContainer.innerHTML = cardsHtml.join('');
+    }
+
+    // Master Render Function
+    function renderAll() {
+      const filtered = getFilteredEpisodes();
+      resultsCounter.textContent = `Mostrando ${filtered.length} de 500 capítulos`;
+
+      if (currentView === 'table') {
+        tableViewContainer.classList.remove('hidden');
+        sagasContainer.classList.add('hidden');
+        renderTableView(filtered);
+      } else {
+        tableViewContainer.classList.add('hidden');
+        sagasContainer.classList.remove('hidden');
+        renderSagasView(filtered);
+      }
+    }
+
+    // Event Delegation for Episode Click & Checkboxes
+    document.addEventListener('change', (e) => {
+      if (e.target.classList.contains('ep-check')) {
+        const epNum = parseInt(e.target.dataset.ep, 10);
+        if (e.target.checked) {
+          watchedSet.add(epNum);
+        } else {
+          watchedSet.delete(epNum);
+        }
+        saveWatched();
+        if (currentView === 'table') {
+          const row = e.target.closest('tr');
+          if (row) row.classList.toggle('opacity-60', e.target.checked);
+        }
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      // Saga accordion toggle
+      const sagaHeader = e.target.closest('.saga-header');
+      if (sagaHeader) {
+        const panel = sagaHeader.nextElementSibling;
+        const chevron = sagaHeader.querySelector('.saga-chevron');
+        panel.classList.toggle('hidden');
+        chevron.classList.toggle('rotate-180');
+        return;
+      }
+
+      // Episode row or card click -> Open Modal
+      const epRow = e.target.closest('[data-ep]');
+      if (epRow && !e.target.classList.contains('ep-check')) {
+        const epNum = parseInt(epRow.dataset.ep, 10);
+        openEpisodeModal(epNum);
+      }
+    });
+
+    // Modal Logic
+    const episodeModal = document.getElementById('episode-modal');
+    const modalCard = document.getElementById('modal-card');
+    const modalWatchedCheck = document.getElementById('modal-watched-check');
+    const modalPrevBtn = document.getElementById('modal-prev-btn');
+    const modalNextBtn = document.getElementById('modal-next-btn');
+
+    function openEpisodeModal(epNum) {
+      activeModalEpNum = epNum;
+      const ep = ALL_EPISODES[epNum - 1];
+      if (!ep) return;
+
+      const badge = getBadgeConfig(ep.type);
+      document.getElementById('modal-ep-num').textContent = `CAPÍTULO #${String(ep.num).padStart(3, '0')}`;
+      const modalBadge = document.getElementById('modal-badge');
+      modalBadge.textContent = badge.label;
+      modalBadge.className = `px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider ${badge.classes}`;
+
+      document.getElementById('modal-title').textContent = ep.title;
+      document.getElementById('modal-saga').textContent = ep.sagaName;
+      document.getElementById('modal-saga-range').textContent = ep.sagaRange;
+      document.getElementById('modal-desc').textContent = ep.sagaDesc;
+      document.getElementById('modal-verdict').textContent = ep.sagaVerdict;
+
+      modalWatchedCheck.checked = watchedSet.has(ep.num);
+      modalPrevBtn.disabled = ep.num <= 1;
+      modalNextBtn.disabled = ep.num >= 500;
+
+      episodeModal.classList.remove('pointer-events-none', 'opacity-0');
+      episodeModal.classList.add('opacity-100');
+      modalCard.classList.remove('scale-95');
+      modalCard.classList.add('scale-100');
+    }
+
+    function closeEpisodeModal() {
+      episodeModal.classList.add('opacity-0', 'pointer-events-none');
+      episodeModal.classList.remove('opacity-100');
+      modalCard.classList.remove('scale-100');
+      modalCard.classList.add('scale-95');
+    }
+
+    document.getElementById('modal-close-btn').addEventListener('click', closeEpisodeModal);
+    episodeModal.addEventListener('click', (e) => {
+      if (e.target === episodeModal) closeEpisodeModal();
+    });
+
+    modalWatchedCheck.addEventListener('change', (e) => {
+      if (e.target.checked) watchedSet.add(activeModalEpNum);
+      else watchedSet.delete(activeModalEpNum);
+      saveWatched();
+      renderAll();
+    });
+
+    modalPrevBtn.addEventListener('click', () => {
+      if (activeModalEpNum > 1) openEpisodeModal(activeModalEpNum - 1);
+    });
+    modalNextBtn.addEventListener('click', () => {
+      if (activeModalEpNum < 500) openEpisodeModal(activeModalEpNum + 1);
+    });
+
+    // Search Input Events
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      clearSearchBtn.classList.toggle('hidden', searchQuery.length === 0);
+      renderAll();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      searchQuery = '';
+      clearSearchBtn.classList.add('hidden');
+      renderAll();
+      searchInput.focus();
+    });
+
+    // Saga Dropdown Event
+    sagaSelect.addEventListener('change', (e) => {
+      currentSagaId = e.target.value;
+      renderAll();
+    });
+
+    // Filter Buttons Events
+    function setActiveFilter(filterValue) {
+      currentFilter = filterValue;
+      filterButtons.forEach(b => {
+        const isActive = b.dataset.filter === filterValue;
+        b.classList.toggle('is-active', isActive);
+        b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setActiveFilter(btn.dataset.filter);
+        renderAll();
+      });
+    });
+
+    // Toggle View Mode (Table vs Sagas)
+    viewTableBtn.addEventListener('click', () => {
+      currentView = 'table';
+      viewTableBtn.className = 'flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md flex items-center justify-center gap-1.5';
+      viewSagasBtn.className = 'flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white flex items-center justify-center gap-1.5';
+      renderAll();
+    });
+
+    viewSagasBtn.addEventListener('click', () => {
+      currentView = 'sagas';
+      viewSagasBtn.className = 'flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-md flex items-center justify-center gap-1.5';
+      viewTableBtn.className = 'flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white flex items-center justify-center gap-1.5';
+      renderAll();
+    });
+
+    // Quick Action: Mark all canon as watched / reset
+    document.getElementById('mark-all-canon-btn').addEventListener('click', () => {
+      const canonEps = ALL_EPISODES.filter(e => e.type !== 'filler').map(e => e.num);
+      const allMarked = canonEps.every(n => watchedSet.has(n));
+      if (allMarked) {
+        watchedSet.clear();
+        document.getElementById('mark-all-canon-btn').textContent = 'Marcar todo el Canon visto';
+      } else {
+        canonEps.forEach(n => watchedSet.add(n));
+        document.getElementById('mark-all-canon-btn').textContent = 'Reiniciar progreso';
+      }
+      saveWatched();
+      renderAll();
+    });
+
+    // Initialize Application
+    const canonEpsInit = ALL_EPISODES.filter(e => e.type !== 'filler').map(e => e.num);
+    if (canonEpsInit.every(n => watchedSet.has(n)) && canonEpsInit.length) {
+      document.getElementById('mark-all-canon-btn').textContent = 'Reiniciar progreso';
+    }
+    updateDashboardStats();
+    renderAll();
+
+    window.addEventListener('beforeunload', saveWatched);
+    window.addEventListener('pagehide', saveWatched);
+  </script>
+</body>
+</html>
